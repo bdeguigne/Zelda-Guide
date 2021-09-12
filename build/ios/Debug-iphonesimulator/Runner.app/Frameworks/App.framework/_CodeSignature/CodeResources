@@ -10,7 +10,7 @@
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		fih0kNeyrxGzyB0JX59CZNXiS4o=
+		Nqawy7D+hMC7k3bq2+MOIlth1Ss=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -24,10 +24,6 @@
 		<data>
 		0ls1JC3rHG/4iLgWLKKqzDVtOJk=
 		</data>
-		<key>flutter_assets/assets/fonts/Roboto/Roboto-Regular.ttf</key>
-		<data>
-		hNECSIc4sOu8elCHlz7/vVTJW9U=
-		</data>
 		<key>flutter_assets/assets/fonts/The%20Wild%20Breath%20of%20Zelda.otf</key>
 		<data>
 		GQ+Poo8c0+pK7XH06MwhFNCpYT4=
@@ -35,6 +31,10 @@
 		<key>flutter_assets/assets/images/sheika.png</key>
 		<data>
 		Zg9iDEG3/lZ2IH/r1+jijEkQOpM=
+		</data>
+		<key>flutter_assets/assets/images/zelda.png</key>
+		<data>
+		isuNAFXbXsjsfieMB6lCezsRPLM=
 		</data>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		G+8E0+8cC49FlTCq3nvh0XMwGU8=
+		KeP+05xkQMXTVoRHyabn9mf0Xes=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -63,11 +63,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			fih0kNeyrxGzyB0JX59CZNXiS4o=
+			Nqawy7D+hMC7k3bq2+MOIlth1Ss=
 			</data>
 			<key>hash2</key>
 			<data>
-			Oy7TR1Iv66E17QstlgX95CJCDwaaldiC30gvl8wRgmU=
+			w18w99zDT0vNqS4X/KR2lcFjDhtjoSY6xgYSDm5rr+Y=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -103,17 +103,6 @@
 			B3zasVFhIyqbpxJNLd16lCUUV1B4jpqWbBVsxmJ09SU=
 			</data>
 		</dict>
-		<key>flutter_assets/assets/fonts/Roboto/Roboto-Regular.ttf</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			hNECSIc4sOu8elCHlz7/vVTJW9U=
-			</data>
-			<key>hash2</key>
-			<data>
-			MZz/bnox8PKkHEddykKJCqXRn+FgF+IpD4wdThT3ZIE=
-			</data>
-		</dict>
 		<key>flutter_assets/assets/fonts/The%20Wild%20Breath%20of%20Zelda.otf</key>
 		<dict>
 			<key>hash</key>
@@ -134,6 +123,17 @@
 			<key>hash2</key>
 			<data>
 			ZdruixFX5SJqAJGkBdROjn+REmNYgrMekrC7BnSZW7I=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/images/zelda.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			isuNAFXbXsjsfieMB6lCezsRPLM=
+			</data>
+			<key>hash2</key>
+			<data>
+			wYSSjo8EQ5nt5Y/MOpuNBUwjILEVnMrFeVhRURo8Nt8=
 			</data>
 		</dict>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
@@ -162,11 +162,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			G+8E0+8cC49FlTCq3nvh0XMwGU8=
+			KeP+05xkQMXTVoRHyabn9mf0Xes=
 			</data>
 			<key>hash2</key>
 			<data>
-			7Ao1++wLKx3hizoNI75X0gW7eiAiFEdQ2XCs5G/+PlI=
+			1FB8Cd05ZGKhK878tnr9TxIkXdxdgOTw/mjAk3X0/aM=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

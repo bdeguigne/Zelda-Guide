@@ -1,6 +1,10 @@
+import 'package:bpl/heading.dart';
+import 'package:bpl/second_screen/second_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'button_label.dart';
+import 'constants.dart';
+import 'localisation.dart';
 
 class FirstScreen extends StatefulWidget {
   const FirstScreen({Key? key}) : super(key: key);
@@ -16,7 +20,7 @@ class _FirstScreenState extends State<FirstScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: const Color(0xff001833),
+        color: Constants.backgroundColor,
         child: Padding(
           padding: const EdgeInsets.all(42.0),
           child: Center(
@@ -38,14 +42,7 @@ class _FirstScreenState extends State<FirstScreen> {
                 const SizedBox(
                   height: 32,
                 ),
-                const Text(
-                  "SHEIKA SLATE",
-                  style: TextStyle(
-                    fontFamily: "Zelda",
-                    fontSize: 45,
-                    color: Colors.white,
-                  ),
-                ),
+                const Heading("Sheika Slate"),
                 const SizedBox(
                   height: 12,
                 ),
@@ -78,6 +75,20 @@ class _FirstScreenState extends State<FirstScreen> {
                   icon: Icon(
                     Icons.logout_outlined,
                   ),
+                ),
+                const SizedBox(
+                  height: 32,
+                ),
+                InkWell(
+                  child: const Localisation(),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const SecondScreen(),
+                      ),
+                    );
+                  },
                 ),
               ],
             ),
