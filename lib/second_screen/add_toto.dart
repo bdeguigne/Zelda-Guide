@@ -61,7 +61,7 @@ class _AddTodoState extends State<AddTodo> {
                 },
                 child: const Padding(
                   padding: EdgeInsets.only(top: 18, bottom: 18),
-                  child: Text("Add"),
+                  child: Text('Add'),
                 ),
               ),
             ),
