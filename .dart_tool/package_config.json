@@ -212,6 +212,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "get_it",
+      "rootUri": "file:///Users/bdeguigne/Documents/installation/flutter/.pub-cache/hosted/pub.dartlang.org/get_it-7.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "glob",
       "rootUri": "file:///Users/bdeguigne/Documents/installation/flutter/.pub-cache/hosted/pub.dartlang.org/glob-2.0.1",
       "packageUri": "lib/",
@@ -232,6 +238,18 @@
     {
       "name": "http_parser",
       "rootUri": "file:///Users/bdeguigne/Documents/installation/flutter/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "injectable",
+      "rootUri": "file:///Users/bdeguigne/Documents/installation/flutter/.pub-cache/hosted/pub.dartlang.org/injectable-1.5.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "injectable_generator",
+      "rootUri": "file:///Users/bdeguigne/Documents/installation/flutter/.pub-cache/hosted/pub.dartlang.org/injectable_generator-1.5.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -428,7 +446,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-09-14T22:12:05.503041Z",
+  "generated": "2021-09-15T20:58:07.455613Z",
   "generator": "pub",
   "generatorVersion": "2.14.0"
 }

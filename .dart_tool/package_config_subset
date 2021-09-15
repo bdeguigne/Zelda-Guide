@@ -134,6 +134,10 @@ get
 2.12
 file:///Users/bdeguigne/Documents/installation/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.3.8/
 file:///Users/bdeguigne/Documents/installation/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.3.8/lib/
+get_it
+2.12
+file:///Users/bdeguigne/Documents/installation/flutter/.pub-cache/hosted/pub.dartlang.org/get_it-7.2.0/
+file:///Users/bdeguigne/Documents/installation/flutter/.pub-cache/hosted/pub.dartlang.org/get_it-7.2.0/lib/
 glob
 2.12
 file:///Users/bdeguigne/Documents/installation/flutter/.pub-cache/hosted/pub.dartlang.org/glob-2.0.1/
@@ -150,6 +154,14 @@ http_parser
 2.12
 file:///Users/bdeguigne/Documents/installation/flutter/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.0/
 file:///Users/bdeguigne/Documents/installation/flutter/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.0/lib/
+injectable
+2.12
+file:///Users/bdeguigne/Documents/installation/flutter/.pub-cache/hosted/pub.dartlang.org/injectable-1.5.0/
+file:///Users/bdeguigne/Documents/installation/flutter/.pub-cache/hosted/pub.dartlang.org/injectable-1.5.0/lib/
+injectable_generator
+2.12
+file:///Users/bdeguigne/Documents/installation/flutter/.pub-cache/hosted/pub.dartlang.org/injectable_generator-1.5.2/
+file:///Users/bdeguigne/Documents/installation/flutter/.pub-cache/hosted/pub.dartlang.org/injectable_generator-1.5.2/lib/
 io
 2.12
 file:///Users/bdeguigne/Documents/installation/flutter/.pub-cache/hosted/pub.dartlang.org/io-1.0.3/
