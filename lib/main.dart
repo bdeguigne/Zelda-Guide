@@ -4,13 +4,11 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:zelda_guide/application/auth/home_page_controller.dart';
 import 'package:zelda_guide/constants.dart';
 import 'package:zelda_guide/injection.dart';
 import 'package:zelda_guide/presentation/home_page/home_page_bind.dart';
 import 'package:zelda_guide/presentation/home_page/home_page_view.dart';
-import 'package:zelda_guide/presentation/register_page/register_page_bind.dart';
-import 'package:zelda_guide/presentation/register_page/register_page_view.dart';
+import 'package:zelda_guide/presentation/main_page/main_page_view.dart';
 
 void main() async {
   configureDependencies();
@@ -37,9 +35,8 @@ class MyApp extends StatelessWidget {
               binding: HomePageBind(),
             ),
             GetPage(
-              name: Routes.register,
-              page: () => const RegisterPageView(),
-              binding: RegisterPageBind(),
+              name: Routes.main,
+              page: () => const MainPageView(),
             ),
           ],
           theme: ThemeData(

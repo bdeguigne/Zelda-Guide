@@ -6,7 +6,7 @@ import 'package:zelda_guide/domain/auth/value_objects.dart';
 import 'auth_failure.dart';
 
 abstract class IAuthFacade {
-  Future<Option<Unit>> getSignedInUser();
+  Future<Option<User>> getSignedInUser();
 
   Future<Either<RegisterFailure, User>> register({
     required Username username,

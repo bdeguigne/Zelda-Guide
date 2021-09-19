@@ -1,6 +1,9 @@
+import 'package:dartz/dartz.dart';
 import 'package:get/get.dart';
 import 'package:injectable/injectable.dart';
+import 'package:zelda_guide/application/auth/user_controller.dart';
 import 'package:zelda_guide/domain/auth/i_auth_facade.dart';
+import 'package:zelda_guide/domain/auth/user.dart';
 
 @injectable
 class HomePageController extends GetxController {
@@ -8,10 +11,16 @@ class HomePageController extends GetxController {
 
   HomePageController(this._authFacade);
 
-  @override
-  void onInit() async {
-    print("WOW");
-    await _authFacade.getSignedInUser();
-    super.onInit();
+  RxBool isSubmitting = false.obs;
+  RxBool showErrorMessage = false.obs;
+
+  Future<Option<User>> verifyAuthentication() async {
+    isSubmitting.value = true;
+    return _authFacade.getSignedInUser();
+  }
+
+  void storeUser(User user) {
+    final UserController userController = Get.find<UserController>();
+    userController.user = user;
   }
 }

@@ -38,15 +38,16 @@ class HiveAuthFacade implements IAuthFacade {
   }
 
   @override
-  Future<Option<Unit>> getSignedInUser() async {
-    print("Signed");
-    var box = await Hive.openBox(BoxStorage.boxName);
+  Future<Option<User>> getSignedInUser() async {
+    final box = await Hive.openBox(BoxStorage.boxName);
+    final authenticatedUser = box.get(BoxStorage.keys.authenticatedUser);
 
     // await box.clear();
 
-    print("BOX VALUES ${box.values}");
-    print("CURRENT USER ${box.get(BoxStorage.keys.authenticatedUser)}");
+    print("AUTHENTICATED USER $authenticatedUser");
 
-    return some(unit);
+    return authenticatedUser != null
+        ? some(User.fromJson(authenticatedUser))
+        : none();
   }
 }

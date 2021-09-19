@@ -1,6 +1,6 @@
 class Routes {
   static const home = '/';
-  static const register = '/register';
+  static const main = '/main';
 }
 
 class BoxKeys {

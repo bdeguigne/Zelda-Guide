@@ -45,7 +45,6 @@ class RegisterController extends GetxController {
 
   signedUp() {
     // Either<AuthFailure, Unit> failureOrSuccess;
-
     final isUsernameValid = _username.isValid();
     final isEmailValid = _emailAddress.isValid();
     final isPasswordValid = _password.isValid();

@@ -11,12 +11,12 @@ class User {
     this.password,
   );
 
-  User.fromJson(Map<String, dynamic> json)
+  User.fromJson(Map<dynamic, dynamic> json)
       : username = Username.fromJson(json['username'] as String),
         emailAddress = EmailAddress.fromJson(json['emailAddress'] as String),
         password = Password.fromJson(json['emailAddress'] as String);
 
-  Map<String, dynamic> toJson() => {
+  Map<dynamic, dynamic> toJson() => {
         'username': username.getOrCrash(),
         'emailAddress': emailAddress.getOrCrash(),
         "password": password.getOrCrash(),
