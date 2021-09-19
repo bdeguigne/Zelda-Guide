@@ -13,7 +13,7 @@ extension HiveX on Box {
     toMap().forEach((key, jsonUser) {
       final user = User.fromJson(jsonUser);
       if (value.username == user.username) {
-        throw UnexpectedAuthError(const AuthFailure.emailAlreadyInUse());
+        throw UnexpectedAuthError(const AuthFailure.usernameAlreadyInUse());
       }
     });
     await add(value.toJson());

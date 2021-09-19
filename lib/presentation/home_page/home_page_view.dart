@@ -12,6 +12,11 @@ import '../core/widgets/button_label.dart';
 class HomePageView extends GetView<HomePageController> {
   const HomePageView({Key? key}) : super(key: key);
 
+  void authSuccess(User user) {
+    controller.storeUser(user);
+    Get.toNamed(Routes.main);
+  }
+
   showAuthModalBottomSheet(BuildContext context) {
     showMaterialModalBottomSheet<void>(
       context: context,
@@ -24,7 +29,9 @@ class HomePageView extends GetView<HomePageController> {
       builder: (BuildContext context) {
         return Container(
           color: Colors.black54,
-          child: const RegisterView(),
+          child: RegisterView(
+            authSuccess: (user) => authSuccess(user),
+          ),
         );
       },
     );
@@ -36,10 +43,7 @@ class HomePageView extends GetView<HomePageController> {
       // if the user was not authenticated
       () => showAuthModalBottomSheet(context),
       // else
-      (user) {
-        controller.storeUser(user);
-        Get.toNamed(Routes.main);
-      },
+      (user) => authSuccess(user),
     );
   }
 

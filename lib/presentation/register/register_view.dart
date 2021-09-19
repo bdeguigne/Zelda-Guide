@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:zelda_guide/application/auth/register_controller.dart';
+import 'package:zelda_guide/domain/auth/user.dart';
 
 class RegisterView extends GetView<RegisterController> {
-  const RegisterView({Key? key}) : super(key: key);
+  const RegisterView({Key? key, required this.authSuccess}) : super(key: key);
+
+  final Function(User) authSuccess;
 
   @override
   Widget build(BuildContext context) {
@@ -45,17 +48,6 @@ class RegisterView extends GetView<RegisterController> {
                     TextFormField(
                       autocorrect: false,
                       decoration: const InputDecoration(
-                        icon: Icon(Icons.email_outlined),
-                        border: OutlineInputBorder(),
-                        labelText: "Email",
-                      ),
-                      onChanged: (value) => controller.emailChanged(value),
-                      validator: (_) => controller.emailValidated(),
-                    ),
-                    const SizedBox(height: 24),
-                    TextFormField(
-                      autocorrect: false,
-                      decoration: const InputDecoration(
                         icon: Icon(Icons.password),
                         border: OutlineInputBorder(),
                         labelText: "Password",
@@ -64,8 +56,20 @@ class RegisterView extends GetView<RegisterController> {
                       validator: (_) => controller.passwordValidated(),
                     ),
                     const SizedBox(height: 24),
+                    TextFormField(
+                      autocorrect: false,
+                      decoration: const InputDecoration(
+                        icon: Icon(Icons.password),
+                        border: OutlineInputBorder(),
+                        labelText: "Confirm Password",
+                      ),
+                      onChanged: (value) =>
+                          controller.confirmPasswordChanged(value),
+                      validator: (_) => controller.confirmPasswordValidated(),
+                    ),
+                    const SizedBox(height: 24),
                     ElevatedButton(
-                      onPressed: () => controller.signedUp(),
+                      onPressed: () => controller.signedUp(authSuccess),
                       child: const Text("Sign up"),
                     )
                   ],
