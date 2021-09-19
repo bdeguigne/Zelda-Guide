@@ -38,12 +38,16 @@ dependencies:
   freezed_annotation: ^0.14.3
   injectable: ^1.5.0
   get_it: ^7.2.0
+  hive: ^2.0.4
+  hive_flutter: ^1.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   freezed: ^0.14.5
   injectable_generator: ^1.5.2
+  hive_generator: ^1.1.1
+  json_serializable: ^5.0.1
   build_runner: ^2.1.2
 
   # The "flutter_lints" package below contains a set of recommended lints to

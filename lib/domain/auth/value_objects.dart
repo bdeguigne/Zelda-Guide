@@ -14,6 +14,9 @@ class EmailAddress extends ValueObject<String> {
   }
 
   const EmailAddress._(this.value);
+
+  factory EmailAddress.fromJson(String jsonValue) =>
+      EmailAddress._(validateEmailAddress(jsonValue));
 }
 
 class Password extends ValueObject<String> {
@@ -27,6 +30,9 @@ class Password extends ValueObject<String> {
   }
 
   const Password._(this.value);
+
+  factory Password.fromJson(String jsonValue) =>
+      Password._(validatePassword(jsonValue));
 }
 
 class Username extends ValueObject<String> {
@@ -40,4 +46,7 @@ class Username extends ValueObject<String> {
   }
 
   const Username._(this.value);
+
+  factory Username.fromJson(String jsonValue) =>
+      Username._(validateUsername(jsonValue));
 }

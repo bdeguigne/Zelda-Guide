@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:zelda_guide/application/auth/home_page_controller.dart';
 import 'package:zelda_guide/presentation/core/widgets/default_scaffold.dart';
 import 'package:get/get.dart';
 import '../core/widgets/button_label.dart';
 
-class HomePageView extends StatelessWidget {
+class HomePageView extends GetView<HomePageController> {
   const HomePageView({Key? key}) : super(key: key);
 
   @override

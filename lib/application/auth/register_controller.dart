@@ -1,8 +1,15 @@
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:injectable/injectable.dart';
+import 'package:zelda_guide/domain/auth/i_auth_facade.dart';
 import 'package:zelda_guide/domain/auth/value_objects.dart';
 
+@injectable
 class RegisterController extends GetxController {
+  final IAuthFacade _authFacade;
+
+  RegisterController(this._authFacade);
+
   Username _username = Username('');
   EmailAddress _emailAddress = EmailAddress('');
   Password _password = Password('');
@@ -39,11 +46,18 @@ class RegisterController extends GetxController {
   signedUp() {
     // Either<AuthFailure, Unit> failureOrSuccess;
 
+    final isUsernameValid = _username.isValid();
     final isEmailValid = _emailAddress.isValid();
-    // final isPasswordValid = _password.isValid();
+    final isPasswordValid = _password.isValid();
 
-    if (isEmailValid) {
+    if (isUsernameValid && isEmailValid && isPasswordValid) {
       isSubmitting.value = true;
+
+      _authFacade.register(
+        username: _username,
+        emailAddress: _emailAddress,
+        password: _password,
+      );
     } else {
       isSubmitting.value = false;
       showErrorMessage.value = true;
