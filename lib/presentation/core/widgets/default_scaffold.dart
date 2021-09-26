@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 
 class DefaultScaffold extends StatelessWidget {
-  const DefaultScaffold({Key? key, required this.body}) : super(key: key);
+  const DefaultScaffold({
+    Key? key,
+    required this.body,
+    this.bottomNavigationBar,
+  }) : super(key: key);
 
   final Widget body;
+  final Widget? bottomNavigationBar;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: bottomNavigationBar,
       body: Stack(
         children: [
           const SingleChildScrollView(
