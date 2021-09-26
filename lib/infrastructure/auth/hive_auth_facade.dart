@@ -4,7 +4,7 @@ import 'package:zelda_guide/constants.dart';
 import 'package:zelda_guide/domain/auth/auth_failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:zelda_guide/domain/auth/i_auth_facade.dart';
-import 'package:zelda_guide/domain/auth/user.dart';
+import 'package:zelda_guide/domain/auth/models/user.dart';
 import 'package:zelda_guide/domain/auth/value_objects.dart';
 import 'package:zelda_guide/domain/core/errors.dart';
 import '../core/hive_helpers.dart';

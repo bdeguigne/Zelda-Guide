@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:zelda_guide/application/auth/register_controller.dart';
-import 'package:zelda_guide/domain/auth/user.dart';
+import 'package:zelda_guide/domain/auth/models/user.dart';
 
 class RegisterView extends GetView<RegisterController> {
   const RegisterView({Key? key, required this.authSuccess}) : super(key: key);

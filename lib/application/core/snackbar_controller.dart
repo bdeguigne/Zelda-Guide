@@ -27,7 +27,7 @@ class SnackbarController extends GetxController {
             passwordNotMatch: (_) => Get.snackbar("Password doesn't match", ""),
           ),
         );
-        // Reset the failure for re-triggering the event on the same failure.
+        // Reset the failure for re-triggering the event on the same failure next time.
         _authFailure.value = none();
       },
     );

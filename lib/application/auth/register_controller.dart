@@ -1,11 +1,9 @@
-import 'package:dartz/dartz.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:injectable/injectable.dart';
 import 'package:zelda_guide/application/core/snackbar_controller.dart';
-import 'package:zelda_guide/domain/auth/auth_failure.dart';
 import 'package:zelda_guide/domain/auth/i_auth_facade.dart';
-import 'package:zelda_guide/domain/auth/user.dart';
+import 'package:zelda_guide/domain/auth/models/user.dart';
 import 'package:zelda_guide/domain/auth/value_objects.dart';
 
 @injectable

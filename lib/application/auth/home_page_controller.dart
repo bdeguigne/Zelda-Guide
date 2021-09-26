@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:injectable/injectable.dart';
 import 'package:zelda_guide/application/auth/user_controller.dart';
 import 'package:zelda_guide/domain/auth/i_auth_facade.dart';
-import 'package:zelda_guide/domain/auth/user.dart';
+import 'package:zelda_guide/domain/auth/models/user.dart';
 
 @injectable
 class HomePageController extends GetxController {

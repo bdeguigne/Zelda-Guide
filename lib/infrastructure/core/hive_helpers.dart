@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:hive/hive.dart';
 import 'package:zelda_guide/constants.dart';
 import 'package:zelda_guide/domain/auth/auth_failure.dart';
-import 'package:zelda_guide/domain/auth/user.dart';
+import 'package:zelda_guide/domain/auth/models/user.dart';
 import 'package:zelda_guide/domain/core/errors.dart';
 
 extension HiveX on Box {

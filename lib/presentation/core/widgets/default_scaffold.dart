@@ -10,10 +10,12 @@ class DefaultScaffold extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          const Image(
-            fit: BoxFit.cover,
-            image: AssetImage(
-              "assets/images/bg.jpg",
+          const SingleChildScrollView(
+            child: Image(
+              fit: BoxFit.cover,
+              image: AssetImage(
+                "assets/images/bg.jpg",
+              ),
             ),
           ),
           body,
