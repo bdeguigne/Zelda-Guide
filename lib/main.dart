@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
               name: Routes.main,
               page: () => const MonstersView(),
               binding: MonstersBind(),
-            ),
+            )
           ],
           theme: ThemeData(
             fontFamily: "Montserrat",

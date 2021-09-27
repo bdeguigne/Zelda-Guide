@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:zelda_guide/presentation/core/app_theme.dart';
 
 import 'glow.dart';
 
@@ -59,7 +60,10 @@ class _SheikaTabBarState extends State<SheikaTabBar>
               // This key causes the AnimatedSwitcher to interpret this as a "new"
               key: ValueKey<String>(_selectedName),
               style: const TextStyle(
-                  fontStyle: FontStyle.italic, fontWeight: FontWeight.bold),
+                fontStyle: FontStyle.italic,
+                fontWeight: FontWeight.bold,
+                color: AppTheme.blueSheika,
+              ),
             ),
           ),
         ),
@@ -67,7 +71,7 @@ class _SheikaTabBarState extends State<SheikaTabBar>
           decoration: BoxDecoration(
             border: Border(
               bottom: BorderSide(
-                color: const Color(0xFF0FFFF9).withAlpha(100),
+                color: AppTheme.blueSheika.withAlpha(100),
                 width: _indicatorWeight,
               ),
             ),
@@ -75,7 +79,7 @@ class _SheikaTabBarState extends State<SheikaTabBar>
           child: TabBar(
             controller: _tabController,
             indicatorWeight: _indicatorWeight,
-            indicatorColor: const Color(0xFF0FFFF9),
+            indicatorColor: AppTheme.blueSheika,
             isScrollable: true,
             tabs: widget.tabs
                 .map(
@@ -91,7 +95,7 @@ class _SheikaTabBarState extends State<SheikaTabBar>
                             tab.assetName,
                             width: tab.width,
                             semanticsLabel: tab.semanticLabel,
-                            color: const Color(0xFF0FFFF9),
+                            color: AppTheme.blueSheika,
                           ),
                         ),
                       ),

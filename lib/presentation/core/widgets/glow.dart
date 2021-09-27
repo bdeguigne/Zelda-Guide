@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zelda_guide/presentation/core/app_theme.dart';
 
 class Glow extends StatelessWidget {
   const Glow({
@@ -19,7 +20,7 @@ class Glow extends StatelessWidget {
         borderRadius: BorderRadius.circular(50),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF0C77BB).withAlpha(100),
+            color: AppTheme.glow.withAlpha(100),
             blurRadius: blurRadius,
             spreadRadius: spreadRadius,
           ),
