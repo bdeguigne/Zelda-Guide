@@ -61,7 +61,6 @@ class _SheikaTabBarState extends State<SheikaTabBar>
               key: ValueKey<String>(_selectedName),
               style: const TextStyle(
                 fontStyle: FontStyle.italic,
-                fontWeight: FontWeight.bold,
                 color: AppTheme.blueSheika,
               ),
             ),

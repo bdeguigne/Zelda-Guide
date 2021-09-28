@@ -7,17 +7,20 @@ class SheikaBoxPainter extends CustomPainter {
   SheikaBoxPainter({
     this.glow = false,
     required this.color,
+    required this.opacity,
   });
 
   final bool glow;
   final Color color;
+  final double opacity;
 
   @override
   void paint(Canvas canvas, Size size) {
     if (glow == true) {
-      drawGlow(canvas, size);
+      drawGlow(canvas, size, opacity);
     }
-    drawStrokeRect(canvas, size, glow ? Colors.white : color);
+    drawStrokeRect(
+        canvas, size, glow ? Colors.white.withOpacity(opacity) : color);
   }
 
   @override

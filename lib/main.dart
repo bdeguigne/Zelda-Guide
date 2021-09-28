@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
@@ -14,7 +15,13 @@ import 'package:zelda_guide/presentation/monsters/monsters_view.dart';
 void main() async {
   configureDependencies();
   await Hive.initFlutter();
-  runApp(const MyApp());
+  runApp(
+    DevicePreview(
+      // TODO Disable on prod env
+      enabled: true,
+      builder: (context) => const MyApp(), // Wrap your app
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -27,6 +34,8 @@ class MyApp extends StatelessWidget {
       alignment: Alignment.topLeft,
       children: [
         GetMaterialApp(
+          locale: DevicePreview.locale(context),
+          builder: DevicePreview.appBuilder,
           title: 'Flutter Demo',
           initialRoute: '/',
           getPages: [

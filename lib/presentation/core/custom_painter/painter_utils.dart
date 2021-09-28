@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
-void drawStrokeRect(Canvas canvas, Size size, Color color) {
+void drawStrokeRect(
+  Canvas canvas,
+  Size size,
+  Color color,
+) {
   const shadowOffset = 6.0;
 
   final paint = Paint()
@@ -16,9 +20,9 @@ void drawStrokeRect(Canvas canvas, Size size, Color color) {
   );
 }
 
-void drawGlow(Canvas canvas, Size size) {
+void drawGlow(Canvas canvas, Size size, double opacity) {
   Path path = Path();
-  const elevation = 6.0;
+  const elevation = 3.0;
 
   path.addRect(Rect.fromPoints(
     const Offset(0, -elevation),
@@ -28,7 +32,7 @@ void drawGlow(Canvas canvas, Size size) {
 
   canvas.drawShadow(
     path,
-    Colors.white,
+    Colors.white.withOpacity(opacity),
     elevation,
     false,
   );

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:zelda_guide/application/hyrule_compendium/monsters_controller.dart';
 import 'package:zelda_guide/presentation/core/widgets/default_scaffold.dart';
 import 'package:zelda_guide/presentation/core/widgets/hyrule_item.dart';
+import 'package:zelda_guide/presentation/core/widgets/responsive_grid_view.dart';
 import 'package:zelda_guide/presentation/core/widgets/sheika_tab_bar.dart';
 
 class MonstersView extends GetView<MonstersController> {
@@ -10,11 +11,14 @@ class MonstersView extends GetView<MonstersController> {
 
   @override
   Widget build(BuildContext context) {
+    double _statusBarHeight = MediaQuery.of(context).padding.top;
+
     return DefaultScaffold(
       body: Obx(
         () => controller.monsters.isNotEmpty
             ? Column(
                 children: [
+                  SizedBox(height: _statusBarHeight),
                   const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 16),
                     child: SheikaTabBar(
@@ -52,28 +56,15 @@ class MonstersView extends GetView<MonstersController> {
                       ],
                     ),
                   ),
-                  // Expanded(
-                  //   child: GridView.count(
-                  //     padding: const EdgeInsets.symmetric(
-                  //       horizontal: 32,
-                  //       vertical: 16,
-                  //     ),
-                  //     crossAxisCount: 3,
-                  //     children: controller.monsters
-                  //         .map(
-                  //           (monster) => HyruleItem(
-                  //             imageUrl: monster.image,
-                  //           ),
-                  //         )
-                  //         .toList(),
-                  //   ),
-                  // ),
-                  SheikaBox(
-                    child: Image(
-                      width: 150,
-                      image: NetworkImage(
-                        controller.monsters.elementAt(0).image,
-                      ),
+                  Expanded(
+                    child: ResponsiveGridView(
+                      children: controller.monsters
+                          .map(
+                            (monster) => HyruleItem(
+                              imageUrl: monster.image,
+                            ),
+                          )
+                          .toList(),
                     ),
                   )
                 ],
