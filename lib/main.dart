@@ -18,7 +18,7 @@ void main() async {
   runApp(
     DevicePreview(
       // TODO Disable on prod env
-      enabled: true,
+      enabled: false,
       builder: (context) => const MyApp(), // Wrap your app
     ),
   );

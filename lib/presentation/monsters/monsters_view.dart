@@ -4,7 +4,7 @@ import 'package:zelda_guide/application/hyrule_compendium/monsters_controller.da
 import 'package:zelda_guide/presentation/core/widgets/default_scaffold.dart';
 import 'package:zelda_guide/presentation/core/widgets/hyrule_item.dart';
 import 'package:zelda_guide/presentation/core/widgets/responsive_grid_view.dart';
-import 'package:zelda_guide/presentation/core/widgets/sheika_tab_bar.dart';
+import 'package:zelda_guide/presentation/core/widgets/sheika_ui/sheika_tab_bar.dart';
 
 class MonstersView extends GetView<MonstersController> {
   const MonstersView({Key? key}) : super(key: key);

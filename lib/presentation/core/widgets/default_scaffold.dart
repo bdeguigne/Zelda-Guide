@@ -31,7 +31,6 @@ class DefaultScaffold extends StatelessWidget {
     return LayoutBuilder(
       builder: (_, constraints) {
         final _breakpoint = Breakpoint.fromConstraints(constraints);
-        print(_breakpoint.window);
         return Scaffold(
           bottomNavigationBar: bottomNavigationBar,
           body: Stack(

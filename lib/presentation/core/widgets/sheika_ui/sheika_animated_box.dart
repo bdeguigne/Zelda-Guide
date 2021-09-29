@@ -6,10 +6,12 @@ class SheikaAnimatedBox extends StatefulWidget {
     Key? key,
     required this.child,
     required this.color,
+    this.showCorners = false,
   }) : super(key: key);
 
   final Widget child;
   final Color color;
+  final bool showCorners;
 
   @override
   SheikaAnimatedBoxState createState() => SheikaAnimatedBoxState();
@@ -67,6 +69,7 @@ class SheikaAnimatedBoxState extends State<SheikaAnimatedBox>
         opacity: _opacity,
         glow: _glow,
         color: _color!,
+        showCorners: widget.showCorners,
       ),
       child: widget.child,
     );

@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:zelda_guide/presentation/core/app_theme.dart';
-
-import 'glow.dart';
+import 'package:zelda_guide/presentation/core/widgets/sheika_ui/glow.dart';
 
 class SheikaTabBar extends StatefulWidget {
   const SheikaTabBar({Key? key, required this.tabs}) : super(key: key);
@@ -79,6 +78,7 @@ class _SheikaTabBarState extends State<SheikaTabBar>
             controller: _tabController,
             indicatorWeight: _indicatorWeight,
             indicatorColor: AppTheme.blueSheika,
+            // TODO Responsive scrollable
             isScrollable: true,
             tabs: widget.tabs
                 .map(

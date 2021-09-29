@@ -8,11 +8,13 @@ class SheikaBoxPainter extends CustomPainter {
     this.glow = false,
     required this.color,
     required this.opacity,
+    this.showCorners = false,
   });
 
   final bool glow;
   final Color color;
   final double opacity;
+  final bool showCorners;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -20,7 +22,17 @@ class SheikaBoxPainter extends CustomPainter {
       drawGlow(canvas, size, opacity);
     }
     drawStrokeRect(
-        canvas, size, glow ? Colors.white.withOpacity(opacity) : color);
+      canvas,
+      size,
+      glow ? Colors.white.withOpacity(opacity) : color,
+    );
+    if (showCorners) {
+      final paint = Paint()..color = color;
+      drawBottomRightTriangle(canvas, size, 6, 17, paint, glow);
+      drawUpperRightTriangle(canvas, size, 6, 17, paint, glow);
+      drawUpperLeftTriangle(canvas, size, 6, 17, paint, glow);
+      drawBottomLeftTriangle(canvas, size, 6, 17, paint, glow);
+    }
   }
 
   @override

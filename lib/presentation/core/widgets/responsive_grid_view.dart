@@ -9,6 +9,21 @@ class ResponsiveGridView extends StatelessWidget {
 
   final List<Widget> children;
 
+  int getResponsiveColumns(Breakpoint breakpoint) {
+    switch (breakpoint.window) {
+      case WindowSize.xsmall:
+        return 3;
+      case WindowSize.small:
+        return 4;
+      case WindowSize.medium:
+        return 6;
+      case WindowSize.large:
+        return 12;
+      case WindowSize.xlarge:
+        return 12;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (_, constraints) {
@@ -19,7 +34,7 @@ class ResponsiveGridView extends StatelessWidget {
           vertical: _breakpoint.gutters,
         ),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: _breakpoint.columns,
+          crossAxisCount: getResponsiveColumns(_breakpoint),
         ),
         itemCount: children.length,
         itemBuilder: (_, index) {
