@@ -5,44 +5,36 @@ import 'package:zelda_guide/presentation/core/app_theme.dart';
 import 'package:zelda_guide/presentation/core/widgets/sheika_ui/glow.dart';
 
 class SheikaTabBar extends StatefulWidget {
-  const SheikaTabBar({Key? key, required this.tabs}) : super(key: key);
+  const SheikaTabBar({
+    Key? key,
+    required this.tabs,
+  }) : super(key: key);
 
   final List<SheikaTab> tabs;
 
   @override
-  State<SheikaTabBar> createState() => _SheikaTabBarState();
+  State<SheikaTabBar> createState() => SheikaTabBarState();
 }
 
-class _SheikaTabBarState extends State<SheikaTabBar>
+class SheikaTabBarState extends State<SheikaTabBar>
     with SingleTickerProviderStateMixin {
-  late TabController _tabController;
   int _activeIndex = 0;
 
   @override
-  void initState() {
-    super.initState();
-    _tabController = TabController(
-      vsync: this,
-      length: widget.tabs.length,
-    );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _tabController.dispose();
+  void didChangeDependencies() {
+    if (DefaultTabController.of(context) != null) {
+      DefaultTabController.of(context)!.addListener(() {
+        print("${DefaultTabController.of(context)!.index}");
+        setState(() {
+          _activeIndex = DefaultTabController.of(context)!.index;
+        });
+      });
+    }
+    super.didChangeDependencies();
   }
 
   @override
   Widget build(BuildContext context) {
-    _tabController.addListener(() {
-      if (_tabController.indexIsChanging) {
-        setState(() {
-          _activeIndex = _tabController.index;
-        });
-      }
-    });
-
     const double _indicatorWeight = 0.6;
     String _selectedName = widget.tabs.elementAt(_activeIndex).name;
 
@@ -75,7 +67,7 @@ class _SheikaTabBarState extends State<SheikaTabBar>
             ),
           ),
           child: TabBar(
-            controller: _tabController,
+            // controller: tabController,
             indicatorWeight: _indicatorWeight,
             indicatorColor: AppTheme.blueSheika,
             // TODO Responsive scrollable

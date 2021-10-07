@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:injectable/injectable.dart';
@@ -14,6 +15,7 @@ class MonstersController extends GetxController {
   );
 
   RxList<Monster> monsters = List<Monster>.empty().obs;
+  TabController? tabController;
 
   _getMonster() async {
     monsters.value = await _hyruleCompendiumFacade.getMonsters();
