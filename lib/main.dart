@@ -9,8 +9,10 @@ import 'package:zelda_guide/constants.dart';
 import 'package:zelda_guide/injection.dart';
 import 'package:zelda_guide/presentation/home_page/home_page_bind.dart';
 import 'package:zelda_guide/presentation/home_page/home_page_view.dart';
+import 'package:zelda_guide/presentation/hyrule_map/hyrule_map_bind.dart';
 import 'package:zelda_guide/presentation/monsters/monsters_bind.dart';
 import 'package:zelda_guide/presentation/monsters/monsters_view.dart';
+import 'package:zelda_guide/presentation/hyrule_map/hyrule_map_view.dart';
 
 void main() async {
   configureDependencies();
@@ -44,10 +46,15 @@ class MyApp extends StatelessWidget {
               page: () => const HomePageView(),
               binding: HomePageBind(),
             ),
+            // GetPage(
+            //   name: Routes.main,
+            //   page: () => const MonstersView(),
+            //   binding: MonstersBind(),
+            // )
             GetPage(
               name: Routes.main,
-              page: () => const MonstersView(),
-              binding: MonstersBind(),
+              page: () => const HyruleMapView(),
+              binding: MapBind()
             )
           ],
           theme: ThemeData(

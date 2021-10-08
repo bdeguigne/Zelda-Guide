@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 import 'package:zelda_guide/presentation/register/register_view.dart';
 import '../core/widgets/button_label.dart';
 
+
 class HomePageView extends GetView<HomePageController> {
   const HomePageView({Key? key}) : super(key: key);
 
@@ -46,6 +47,7 @@ class HomePageView extends GetView<HomePageController> {
       (user) => authSuccess(user),
     );
   }
+
 
   @override
   Widget build(BuildContext context) {

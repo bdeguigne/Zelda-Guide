@@ -1,35 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:get/get.dart';
+import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:zelda_guide/presentation/core/widgets/default_scaffold.dart';
+import 'package:zelda_guide/application/auth/home_page_controller.dart';
+import 'dart:math';
 
-class HyruleMapView extends StatelessWidget {
+class HyruleMapView extends GetView<HomePageController> {
   const HyruleMapView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return DefaultScaffold(
-      body: FlutterMap(
+    return Obx(
+      () => FlutterMap(
         options: MapOptions(
-          center: LatLng(51.5, -0.09),
-          zoom: 4.0,
+          center: LatLng(controller.latitude.value, controller.longitude.value),
+          zoom: 18.0,
         ),
         layers: [
           TileLayerOptions(
-            tms: true,
-            tileProvider: const AssetTileProvider(),
-            urlTemplate: "assets/tiles/{z}/{x}/{y}.png",
-          ),
+              urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+              subdomains: ['a', 'b', 'c']),
           MarkerLayerOptions(
-            markers: [
-              Marker(
+            markers: List.generate(
+              10,
+              (index) => Marker(
                 width: 80.0,
                 height: 80.0,
-                point: LatLng(51.5, -0.09),
-                builder: (ctx) => const FlutterLogo(),
+                point: LatLng(
+                    controller.latitude.value +
+                        controller.doubleInRange(Random(), 0.01, -0.01),
+                    controller.longitude.value +
+                        controller.doubleInRange(Random(), 0.01, -0.01)),
+                builder: (ctx) => Container(
+                  child: FlutterLogo(),
+                ),
               ),
-            ],
-          ),
+            ),
+          )
         ],
       ),
     );
