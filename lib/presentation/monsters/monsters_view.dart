@@ -15,7 +15,7 @@ class MonstersView extends GetView<MonstersController> {
     double _statusBarHeight = MediaQuery.of(context).padding.top;
 
     return DefaultTabController(
-      length: 2,
+      length: 5,
       child: DefaultScaffold(
         body: Obx(
           () => controller.monsters.isNotEmpty
@@ -39,24 +39,24 @@ class MonstersView extends GetView<MonstersController> {
                             width: 35,
                             semanticLabel: 'Monster logo',
                           ),
-                          // SheikaTab(
-                          //   name: "Materials",
-                          //   assetName: "assets/icons/apple.svg",
-                          //   width: 25,
-                          //   semanticLabel: 'Material logo',
-                          // ),
-                          // SheikaTab(
-                          //   name: "Equipments",
-                          //   assetName: "assets/icons/sword.svg",
-                          //   width: 25,
-                          //   semanticLabel: 'Equipment logo',
-                          // ),
-                          // SheikaTab(
-                          //   name: "Treasures",
-                          //   assetName: "assets/icons/chest.svg",
-                          //   width: 35,
-                          //   semanticLabel: 'Treasure logo',
-                          // ),
+                          SheikaTab(
+                            name: "Materials",
+                            assetName: "assets/icons/apple.svg",
+                            width: 25,
+                            semanticLabel: 'Material logo',
+                          ),
+                          SheikaTab(
+                            name: "Equipments",
+                            assetName: "assets/icons/sword.svg",
+                            width: 25,
+                            semanticLabel: 'Equipment logo',
+                          ),
+                          SheikaTab(
+                            name: "Treasures",
+                            assetName: "assets/icons/chest.svg",
+                            width: 35,
+                            semanticLabel: 'Treasure logo',
+                          ),
                         ],
                       ),
                     ),
@@ -65,7 +65,6 @@ class MonstersView extends GetView<MonstersController> {
                         children: [
                           Row(
                             children: [
-                              Text("LEFT"),
                               Expanded(
                                 child: ResponsiveGridView(
                                   children: controller.monsters
@@ -77,33 +76,23 @@ class MonstersView extends GetView<MonstersController> {
                                       .toList(),
                                 ),
                               ),
-                              TextButton(
-                                onPressed: () {
-                                  DefaultTabController.of(context)!.index;
-                                },
-                                child: const Text("RIGHT"),
-                              ),
                             ],
                           ),
                           const Center(
-                            child: Text("Helo"),
-                          )
+                            child: Text("Hello"),
+                          ),
+                          const Center(
+                            child: Text("Hello"),
+                          ),
+                          const Center(
+                            child: Text("Hello"),
+                          ),
+                          const Center(
+                            child: Text("Hello"),
+                          ),
                         ],
                       ),
                     ),
-                    // if (_sheikaTabBarKey.currentState != null)
-                    //   TabBarView(
-                    //     controller: _sheikaTabBarKey.currentState!.tabController,
-                    //     children: [
-
-                    //       const Center(
-                    //         child: Text("Hello"),
-                    //       ),
-                    //       const Center(
-                    //         child: Text("TEST"),
-                    //       ),
-                    //     ],
-                    //   ),
                   ],
                 )
               : const Center(child: CircularProgressIndicator()),

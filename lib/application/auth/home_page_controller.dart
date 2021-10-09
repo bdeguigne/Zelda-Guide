@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:dartz/dartz.dart';
 import 'package:get/get.dart';
 import 'package:injectable/injectable.dart';
@@ -18,20 +19,26 @@ class HomePageController extends GetxController {
   RxBool isSubmitting = false.obs;
   RxBool showErrorMessage = false.obs;
 
+  Rx<CameraDescription?>? camera;
+
   Future<Option<User>> verifyAuthentication() async {
     isSubmitting.value = true;
     return _authFacade.getSignedInUser();
   }
 
+  initCamera() async {
+    final cameras = await availableCameras();
+    camera!.value = cameras.first;
+  }
+
   @override
   void onInit() async {
-    // TODO: implement onInit
-    Location location = new Location();
-    
+    initCamera();
+    Location location = Location();
+
     bool _serviceEnabled;
     PermissionStatus _permissionGranted;
     LocationData _locationData;
-    
 
     _serviceEnabled = await location.serviceEnabled();
     if (!_serviceEnabled) {
@@ -52,17 +59,15 @@ class HomePageController extends GetxController {
     _locationData = await location.getLocation();
     print(_locationData);
     if (_locationData.latitude != null && _locationData.longitude != null) {
-      
-    latitude.value = _locationData.latitude!;
-    longitude.value = _locationData.longitude!;
+      latitude.value = _locationData.latitude!;
+      longitude.value = _locationData.longitude!;
     }
 
     super.onInit();
   }
 
-  double doubleInRange(Random source, num start, num end) => 
-    source.nextDouble() * (end - start) + start;
-
+  double doubleInRange(Random source, num start, num end) =>
+      source.nextDouble() * (end - start) + start;
 
   void storeUser(User user) {
     final UserController userController = Get.find<UserController>();
