@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:latlong2/latlong.dart';
@@ -11,6 +12,7 @@ import 'package:zelda_guide/constants.dart';
 class HyruleMapView extends GetView<HomePageController> {
   const HyruleMapView({Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,6 +22,8 @@ class HyruleMapView extends GetView<HomePageController> {
             center:
                 LatLng(controller.latitude.value, controller.longitude.value),
             zoom: 18.0,
+            minZoom: 15.0,
+            maxZoom: 18.0,
           ),
           layers: [
             TileLayerOptions(
@@ -40,7 +44,7 @@ class HyruleMapView extends GetView<HomePageController> {
                   builder: (ctx) => InkWell(
                     onTap: () => Get.toNamed(Routes.camera),
                     child: Container(
-                      child: FlutterLogo(),
+                      child: Image.asset("assets/icons/cranemarker.png")
                     ),
                   ),
                 ),
@@ -52,3 +56,4 @@ class HyruleMapView extends GetView<HomePageController> {
     );
   }
 }
+
