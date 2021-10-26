@@ -12,7 +12,6 @@ import 'package:zelda_guide/constants.dart';
 class HyruleMapView extends GetView<HomePageController> {
   const HyruleMapView({Key? key}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,8 +29,17 @@ class HyruleMapView extends GetView<HomePageController> {
                 urlTemplate:
                     "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                 subdomains: ['a', 'b', 'c']),
-            MarkerLayerOptions(
-              markers: List.generate(
+            MarkerLayerOptions(markers: [
+              Marker(
+                width: 80.0,
+                  height: 80.0,
+                point: LatLng(controller.currentLatitude.value,
+                    controller.currentLongitude.value),
+                builder: (ctx) => InkWell(
+                  child: Image.asset("assets/icons/playercurrent.png"),
+                ),
+              ),
+              ...List.generate(
                 10,
                 (index) => Marker(
                   width: 80.0,
@@ -44,16 +52,14 @@ class HyruleMapView extends GetView<HomePageController> {
                   builder: (ctx) => InkWell(
                     onTap: () => Get.toNamed(Routes.camera),
                     child: Container(
-                      child: Image.asset("assets/icons/cranemarker.png")
-                    ),
+                        child: Image.asset("assets/icons/cranemarker.png")),
                   ),
                 ),
               ),
-            )
+            ])
           ],
         ),
       ),
     );
   }
 }
-

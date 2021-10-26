@@ -13,6 +13,8 @@ class HomePageController extends GetxController {
   final IAuthFacade _authFacade;
   RxDouble longitude = 0.0.obs;
   RxDouble latitude = 0.0.obs;
+  RxDouble currentLongitude = 0.0.obs;
+  RxDouble currentLatitude = 0.0.obs;
 
   HomePageController(this._authFacade);
 
@@ -40,6 +42,7 @@ class HomePageController extends GetxController {
     PermissionStatus _permissionGranted;
     LocationData _locationData;
 
+
     _serviceEnabled = await location.serviceEnabled();
     if (!_serviceEnabled) {
       _serviceEnabled = await location.requestService();
@@ -56,6 +59,10 @@ class HomePageController extends GetxController {
       }
     }
 
+    await location.enableBackgroundMode(enable: true);
+
+   
+
     _locationData = await location.getLocation();
     print(_locationData);
     if (_locationData.latitude != null && _locationData.longitude != null) {
@@ -63,8 +70,16 @@ class HomePageController extends GetxController {
       longitude.value = _locationData.longitude!;
     }
 
+     location.onLocationChanged.listen((LocationData currentLocation) {
+  // Use current location
+  currentLongitude.value = currentLocation.longitude!;
+  currentLatitude.value = currentLocation.latitude!; 
+});
+
     super.onInit();
   }
+
+  
 
   double doubleInRange(Random source, num start, num end) =>
       source.nextDouble() * (end - start) + start;
