@@ -32,30 +32,42 @@ class HyruleMapView extends GetView<HomePageController> {
             MarkerLayerOptions(markers: [
               Marker(
                 width: 80.0,
-                  height: 80.0,
+                height: 80.0,
                 point: LatLng(controller.currentLatitude.value,
                     controller.currentLongitude.value),
                 builder: (ctx) => InkWell(
                   child: Image.asset("assets/icons/playercurrent.png"),
                 ),
               ),
-              ...List.generate(
-                10,
-                (index) => Marker(
-                  width: 80.0,
-                  height: 80.0,
-                  point: LatLng(
-                      controller.latitude.value +
-                          controller.doubleInRange(Random(), 0.01, -0.01),
-                      controller.longitude.value +
-                          controller.doubleInRange(Random(), 0.01, -0.01)),
-                  builder: (ctx) => InkWell(
-                    onTap: () => Get.toNamed(Routes.camera),
-                    child: Container(
-                        child: Image.asset("assets/icons/cranemarker.png")),
-                  ),
-                ),
-              ),
+              ...controller.coords.map((element) 
+                 {
+                  return Marker(
+                    width: 80.0,
+                    height: 80.0,
+                    point: LatLng(element.lat, element.long),
+                    builder: (ctx) => InkWell(
+                      onTap: () {
+                        final currentlat = controller.currentLatitude.value;
+                        final currentlong = controller.currentLongitude.value;
+                        final distance = controller.calculateDistance(currentlat, currentlong, element.lat, element.long);
+                          
+                          if (distance <= 45) {
+                            print("moins de 300M");
+                          }
+                          else{
+                            Get.snackbar("Too far away", "${(distance-45).round()} meters away");
+                          }
+                          print("distance ==> $distance");
+                          print("poistion marker ${element.lat} ${element.long}" );
+                          print("postion nous : $currentlat    ,    $currentlong");
+                        
+                      },
+                      child: Container(
+                          child: Image.asset("assets/icons/cranemarker.png")),
+                    ),
+                  );
+                },
+              ).toList(),
             ])
           ],
         ),
