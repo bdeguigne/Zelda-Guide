@@ -6,14 +6,16 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:zelda_guide/application/auth/profile_bind.dart';
 import 'package:zelda_guide/constants.dart';
 import 'package:zelda_guide/injection.dart';
+import 'package:zelda_guide/presentation/compendium/monsters_bind.dart';
+import 'package:zelda_guide/presentation/compendium/monsters_view.dart';
 import 'package:zelda_guide/presentation/home_page/home_page_bind.dart';
 import 'package:zelda_guide/presentation/home_page/home_page_view.dart';
 import 'package:zelda_guide/presentation/hyrule_map/hyrule_map_bind.dart';
 import 'package:zelda_guide/presentation/hyrule_map/hyrule_map_view.dart';
-import 'package:zelda_guide/presentation/monsters/monsters_bind.dart';
-import 'package:zelda_guide/presentation/monsters/monsters_view.dart';
+import 'package:zelda_guide/presentation/profil/profil_page.dart';
 
 getCameraDescription() async {
   try {
@@ -64,6 +66,11 @@ class MyApp extends StatelessWidget {
           name: Routes.compendium,
           page: () => const MonstersView(),
           binding: MonstersBind(),
+        ),
+        GetPage(
+          name: Routes.profil,
+          page: () => const ProfilPage(),
+          binding: ProfileBind(),
         ),
       ],
       theme: ThemeData(

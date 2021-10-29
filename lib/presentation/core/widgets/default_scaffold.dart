@@ -7,11 +7,13 @@ class DefaultScaffold extends StatelessWidget {
     required this.body,
     this.bottomNavigationBar,
     this.scrollable = true,
+    this.floatingActionButton,
   }) : super(key: key);
 
   final Widget body;
   final Widget? bottomNavigationBar;
   final bool scrollable;
+  final Widget? floatingActionButton;
 
   String getBackgroundByScreenSize(WindowSize window) {
     switch (window) {
@@ -34,6 +36,7 @@ class DefaultScaffold extends StatelessWidget {
       builder: (_, constraints) {
         final _breakpoint = Breakpoint.fromConstraints(constraints);
         return Scaffold(
+          floatingActionButton: floatingActionButton,
           bottomNavigationBar: bottomNavigationBar,
           body: Stack(
             children: [

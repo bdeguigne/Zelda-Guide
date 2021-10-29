@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:zelda_guide/application/hyrule_compendium/monsters_controller.dart';
-import 'package:zelda_guide/constants.dart';
 import 'package:zelda_guide/presentation/core/widgets/default_scaffold.dart';
 import 'package:zelda_guide/presentation/core/widgets/hyrule_item.dart';
 import 'package:zelda_guide/presentation/core/widgets/responsive_grid_view.dart';
@@ -106,8 +105,20 @@ class MonstersView extends GetView<MonstersController> {
                               ),
                             ],
                           ),
-                          const Center(
-                            child: Text("Hello"),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: ResponsiveGridView(
+                                  children: controller.creatures
+                                      .map(
+                                        (creature) => HyruleItem(
+                                          imageUrl: creature.image,
+                                        ),
+                                      )
+                                      .toList(),
+                                ),
+                              ),
+                            ],
                           ),
                           const Center(
                             child: Text("Hello"),

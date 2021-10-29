@@ -92,7 +92,7 @@ class HyruleMapView extends GetView<HomePageController> {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Align(
-              alignment: Alignment.topRight,
+              alignment: Alignment.bottomRight,
               child: Card(
                 elevation: 30,
                 shape: const RoundedRectangleBorder(
@@ -110,7 +110,7 @@ class HyruleMapView extends GetView<HomePageController> {
                     const SizedBox(height: 8),
                     MapIcon(
                       assetPath: "assets/icons/user.svg",
-                      onTap: () {},
+                      onTap: () => Get.toNamed(Routes.profil),
                     ),
                   ],
                 ),
