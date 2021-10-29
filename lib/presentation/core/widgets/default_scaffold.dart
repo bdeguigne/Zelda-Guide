@@ -6,10 +6,12 @@ class DefaultScaffold extends StatelessWidget {
     Key? key,
     required this.body,
     this.bottomNavigationBar,
+    this.scrollable = true,
   }) : super(key: key);
 
   final Widget body;
   final Widget? bottomNavigationBar;
+  final bool scrollable;
 
   String getBackgroundByScreenSize(WindowSize window) {
     switch (window) {
@@ -35,16 +37,23 @@ class DefaultScaffold extends StatelessWidget {
           bottomNavigationBar: bottomNavigationBar,
           body: Stack(
             children: [
-              SingleChildScrollView(
-                child: Expanded(
-                  child: Image(
-                    fit: BoxFit.cover,
-                    image: AssetImage(
-                      getBackgroundByScreenSize(_breakpoint.window),
+              scrollable
+                  ? SingleChildScrollView(
+                      child: Image(
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                        image: AssetImage(
+                          getBackgroundByScreenSize(_breakpoint.window),
+                        ),
+                      ),
+                    )
+                  : Image(
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                      image: AssetImage(
+                        getBackgroundByScreenSize(_breakpoint.window),
+                      ),
                     ),
-                  ),
-                ),
-              ),
               body,
             ],
           ),

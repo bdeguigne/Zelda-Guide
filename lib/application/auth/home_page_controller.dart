@@ -1,5 +1,9 @@
+import 'dart:io';
+
 import 'package:camera/camera.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter_map/plugin_api.dart';
 import 'package:get/get.dart';
 import 'package:injectable/injectable.dart';
 import 'package:latlong2/latlong.dart';
@@ -24,6 +28,8 @@ class HomePageController extends GetxController {
   RxDouble currentLongitude = 0.0.obs;
   RxDouble currentLatitude = 0.0.obs;
   RxList<CoordMark> coords = <CoordMark>[].obs;
+  double defaultZoom = 18.0;
+  RxBool loading = true.obs;
 
   HomePageController(this._authFacade);
 
@@ -32,12 +38,12 @@ class HomePageController extends GetxController {
 
   Rx<CameraDescription?>? camera;
 
-  double calculateDistance(lat1, lon1, lat2, lon2){
+  double calculateDistance(lat1, lon1, lat2, lon2) {
     var p = 0.017453292519943295;
     var c = cos;
-    var a = 0.5 - c((lat2 - lat1) * p)/2 +
-        c(lat1 * p) * c(lat2 * p) *
-            (1 - c((lon2 - lon1) * p))/2;
+    var a = 0.5 -
+        c((lat2 - lat1) * p) / 2 +
+        c(lat1 * p) * c(lat2 * p) * (1 - c((lon2 - lon1) * p)) / 2;
     return 1000 * 12742 * asin(sqrt(a));
   }
 
@@ -55,14 +61,8 @@ class HomePageController extends GetxController {
     return _authFacade.getSignedInUser();
   }
 
-  initCamera() async {
-    final cameras = await availableCameras();
-    camera!.value = cameras.first;
-  }
-
   @override
   void onInit() async {
-    initCamera();
     Location location = Location();
 
     bool _serviceEnabled;
@@ -84,8 +84,9 @@ class HomePageController extends GetxController {
         return;
       }
     }
-
-    await location.enableBackgroundMode(enable: true);
+    if (!kIsWeb) {
+      await location.enableBackgroundMode(enable: true);
+    }
 
     _locationData = await location.getLocation();
     print(_locationData);
@@ -102,6 +103,10 @@ class HomePageController extends GetxController {
 
     initListCoord();
 
+    print("NOUS ${latitude.value}");
+    print("NOUS ${longitude.value}");
+
+    loading.toggle();
 
     super.onInit();
   }

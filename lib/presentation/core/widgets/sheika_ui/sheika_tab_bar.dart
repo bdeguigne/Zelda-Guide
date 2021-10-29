@@ -24,7 +24,6 @@ class SheikaTabBarState extends State<SheikaTabBar>
   void didChangeDependencies() {
     if (DefaultTabController.of(context) != null) {
       DefaultTabController.of(context)!.addListener(() {
-        print("${DefaultTabController.of(context)!.index}");
         setState(() {
           _activeIndex = DefaultTabController.of(context)!.index;
         });

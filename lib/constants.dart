@@ -2,7 +2,7 @@ class Routes {
   static const home = '/';
   static const main = '/main';
   static const camera = '/camera';
-  static const monsters = '/monsters';
+  static const compendium = '/compendium';
 }
 
 class BoxKeys {
