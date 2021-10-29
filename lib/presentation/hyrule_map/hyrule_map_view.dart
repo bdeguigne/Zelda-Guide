@@ -28,7 +28,7 @@ class HyruleMapView extends GetView<HomePageController> {
                       center: LatLng(controller.latitude.value,
                           controller.longitude.value),
                       zoom: 18.0,
-                      minZoom: 15.0,
+                      minZoom: 16.0,
                       maxZoom: 18.0,
                     ),
                     layers: [
@@ -68,16 +68,30 @@ class HyruleMapView extends GetView<HomePageController> {
                                           element.long);
 
                                   if (distance <= 45) {
-                                    print("moins de 45M");
+                                    Get.snackbar(
+                                        "Well Done", "You beat this ennemy",
+                                        backgroundColor: Colors.green);
+                                    controller.coords.remove(element);
+                                    if (controller.coords.isEmpty) {
+                                      Get.snackbar(
+                                        "Impressive !!!",
+                                        "You kill all ennemy",
+                                        backgroundColor: Color(0xFF3F4549),
+                                        boxShadows: [
+                                          BoxShadow(
+                                            color: AppTheme.glow.withAlpha(100),
+                                            blurRadius: 12,
+                                            spreadRadius: 8,
+                                          ),
+                                        ],
+                                      );
+                                      controller.initListCoord();
+                                    }
                                   } else {
                                     Get.snackbar("Too far away",
-                                        "${(distance - 45).round()} meters away");
+                                        "${(distance - 45).round()} meters away",
+                                        backgroundColor: Colors.red);
                                   }
-                                  print("distance ==> $distance");
-                                  print(
-                                      "poistion marker ${element.lat} ${element.long}");
-                                  print(
-                                      "postion nous : $currentlat    ,    $currentlong");
                                 },
                                 child:
                                     Image.asset("assets/icons/cranemarker.png"),
