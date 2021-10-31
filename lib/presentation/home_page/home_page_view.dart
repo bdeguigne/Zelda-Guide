@@ -27,10 +27,13 @@ class HomePageView extends GetView<HomePageController> {
       ),
       clipBehavior: Clip.antiAliasWithSaveLayer,
       builder: (BuildContext context) {
-        return Container(
-          color: Colors.black54,
-          child: RegisterView(
-            authSuccess: (user) => authSuccess(user),
+        return Padding(
+          padding: MediaQuery.of(context).viewInsets,
+          child: Container(
+            color: Colors.black54,
+            child: RegisterView(
+              authSuccess: (user) => authSuccess(user),
+            ),
           ),
         );
       },
