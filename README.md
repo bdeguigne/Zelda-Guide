@@ -25,7 +25,7 @@ cd ../path/to/the/file
   ```
 <h3>Builded version</h3>
 
-Follow this link : <https://codemagic.io/app/617ea685a05d5e6a24b6ff24/build/617eb25654ed647d40233697>
+Follow this link : <https://codemagic.io/app/617ea685a05d5e6a24b6ff24/build/617ec0b7a05d5e0119029b06>
 
 And choose your prefered device in **Artifacts** sections
 
