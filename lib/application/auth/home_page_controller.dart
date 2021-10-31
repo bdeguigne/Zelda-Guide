@@ -1,6 +1,5 @@
 import 'package:camera/camera.dart';
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:injectable/injectable.dart';
 import 'package:zelda_guide/application/auth/user_controller.dart';
@@ -79,9 +78,6 @@ class HomePageController extends GetxController {
       if (_permissionGranted != PermissionStatus.granted) {
         return;
       }
-    }
-    if (!kIsWeb) {
-      await location.enableBackgroundMode(enable: true);
     }
 
     _locationData = await location.getLocation();

@@ -7,7 +7,6 @@ class Entity {
     required this.commonLocations,
     required this.cookingEffect,
     required this.description,
-    required this.heartsRecovered,
     required this.image,
     required this.name,
   });
@@ -15,7 +14,6 @@ class Entity {
   final List<String> commonLocations;
   final String cookingEffect;
   final String description;
-  final double heartsRecovered;
   final String image;
   final String name;
 
@@ -23,7 +21,6 @@ class Entity {
     List<String>? commonLocations,
     String? cookingEffect,
     String? description,
-    double? heartsRecovered,
     String? image,
     String? name,
   }) {
@@ -31,7 +28,6 @@ class Entity {
       commonLocations: commonLocations ?? this.commonLocations,
       cookingEffect: cookingEffect ?? this.cookingEffect,
       description: description ?? this.description,
-      heartsRecovered: heartsRecovered ?? this.heartsRecovered,
       image: image ?? this.image,
       name: name ?? this.name,
     );
@@ -42,7 +38,6 @@ class Entity {
       'commonLocations': commonLocations,
       'cookingEffect': cookingEffect,
       'description': description,
-      'heartsRecovered': heartsRecovered,
       'image': image,
       'name': name,
     };
@@ -53,7 +48,6 @@ class Entity {
       commonLocations: List<String>.from(map['common_locations']),
       cookingEffect: map['cooking_effect'],
       description: map['description'],
-      heartsRecovered: map['hearts_recovered'],
       image: map['image'],
       name: map['name'],
     );
@@ -65,7 +59,7 @@ class Entity {
 
   @override
   String toString() {
-    return 'Entity(commonLocations: $commonLocations, cookingEffect: $cookingEffect, description: $description, heartsRecovered: $heartsRecovered, image: $image, name: $name)';
+    return 'Entity(commonLocations: $commonLocations, cookingEffect: $cookingEffect, description: $description, image: $image, name: $name)';
   }
 
   @override
@@ -76,7 +70,6 @@ class Entity {
         listEquals(other.commonLocations, commonLocations) &&
         other.cookingEffect == cookingEffect &&
         other.description == description &&
-        other.heartsRecovered == heartsRecovered &&
         other.image == image &&
         other.name == name;
   }
@@ -86,7 +79,6 @@ class Entity {
     return commonLocations.hashCode ^
         cookingEffect.hashCode ^
         description.hashCode ^
-        heartsRecovered.hashCode ^
         image.hashCode ^
         name.hashCode;
   }
