@@ -76,7 +76,8 @@ class HyruleMapView extends GetView<HomePageController> {
                                       Get.snackbar(
                                         "Impressive !!!",
                                         "You kill all ennemy",
-                                        backgroundColor: Color(0xFF3F4549),
+                                        backgroundColor:
+                                            const Color(0xFF3F4549),
                                         boxShadows: [
                                           BoxShadow(
                                             color: AppTheme.glow.withAlpha(100),

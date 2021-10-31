@@ -66,10 +66,8 @@ class SheikaTabBarState extends State<SheikaTabBar>
             ),
           ),
           child: TabBar(
-            // controller: tabController,
             indicatorWeight: _indicatorWeight,
             indicatorColor: AppTheme.blueSheika,
-            // TODO Responsive scrollable
             isScrollable: true,
             tabs: widget.tabs
                 .map(

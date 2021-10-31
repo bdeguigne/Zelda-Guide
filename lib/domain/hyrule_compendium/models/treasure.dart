@@ -2,36 +2,31 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 
-class Creature {
-  Creature({
+class Treasure {
+  final List<String> commonLocations;
+  final List<String> drops;
+  final String description;
+  final String image;
+  final String name;
+  Treasure({
     required this.commonLocations,
-    required this.cookingEffect,
+    required this.drops,
     required this.description,
-    required this.heartsRecovered,
     required this.image,
     required this.name,
   });
 
-  final List<String> commonLocations;
-  final String cookingEffect;
-  final String description;
-  final int heartsRecovered;
-  final String image;
-  final String name;
-
-  Creature copyWith({
+  Treasure copyWith({
     List<String>? commonLocations,
-    String? cookingEffect,
+    List<String>? drops,
     String? description,
-    int? heartsRecovered,
     String? image,
     String? name,
   }) {
-    return Creature(
+    return Treasure(
       commonLocations: commonLocations ?? this.commonLocations,
-      cookingEffect: cookingEffect ?? this.cookingEffect,
+      drops: drops ?? this.drops,
       description: description ?? this.description,
-      heartsRecovered: heartsRecovered ?? this.heartsRecovered,
       image: image ?? this.image,
       name: name ?? this.name,
     );
@@ -40,20 +35,18 @@ class Creature {
   Map<String, dynamic> toMap() {
     return {
       'commonLocations': commonLocations,
-      'cookingEffect': cookingEffect,
+      'drops': drops,
       'description': description,
-      'heartsRecovered': heartsRecovered,
       'image': image,
       'name': name,
     };
   }
 
-  factory Creature.fromMap(Map<String, dynamic> map) {
-    return Creature(
+  factory Treasure.fromMap(Map<String, dynamic> map) {
+    return Treasure(
       commonLocations: List<String>.from(map['common_locations']),
-      cookingEffect: map['cooking_effect'],
+      drops: List<String>.from(map['drops']),
       description: map['description'],
-      heartsRecovered: map['hearts_recovered'],
       image: map['image'],
       name: map['name'],
     );
@@ -61,23 +54,22 @@ class Creature {
 
   String toJson() => json.encode(toMap());
 
-  factory Creature.fromJson(String source) =>
-      Creature.fromMap(json.decode(source));
+  factory Treasure.fromJson(String source) =>
+      Treasure.fromMap(json.decode(source));
 
   @override
   String toString() {
-    return 'Creature(commonLocations: $commonLocations, cookingEffect: $cookingEffect, description: $description, heartsRecovered: $heartsRecovered, image: $image, name: $name)';
+    return 'Treasure(commonLocations: $commonLocations, drops: $drops, description: $description, image: $image, name: $name)';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is Creature &&
+    return other is Treasure &&
         listEquals(other.commonLocations, commonLocations) &&
-        other.cookingEffect == cookingEffect &&
+        listEquals(other.drops, drops) &&
         other.description == description &&
-        other.heartsRecovered == heartsRecovered &&
         other.image == image &&
         other.name == name;
   }
@@ -85,9 +77,8 @@ class Creature {
   @override
   int get hashCode {
     return commonLocations.hashCode ^
-        cookingEffect.hashCode ^
+        drops.hashCode ^
         description.hashCode ^
-        heartsRecovered.hashCode ^
         image.hashCode ^
         name.hashCode;
   }

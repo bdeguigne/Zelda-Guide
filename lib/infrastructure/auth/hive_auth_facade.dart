@@ -42,8 +42,6 @@ class HiveAuthFacade implements IAuthFacade {
     final box = await Hive.openBox(BoxStorage.boxName);
     final authenticatedUser = box.get(BoxStorage.keys.authenticatedUser);
 
-    print("AUTHENTICATED USER $authenticatedUser");
-
     return authenticatedUser != null
         ? some(User.fromJson(authenticatedUser))
         : none();

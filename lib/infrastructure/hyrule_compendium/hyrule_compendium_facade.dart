@@ -1,9 +1,10 @@
-import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:zelda_guide/domain/hyrule_compendium/i_hyrule_compendium_facade.dart';
-import 'package:zelda_guide/domain/hyrule_compendium/models/creatures.dart';
+import 'package:zelda_guide/domain/hyrule_compendium/models/entity.dart';
+import 'package:zelda_guide/domain/hyrule_compendium/models/equipment.dart';
 import 'package:zelda_guide/domain/hyrule_compendium/models/monster.dart';
+import 'package:zelda_guide/domain/hyrule_compendium/models/treasure.dart';
 
 @LazySingleton(as: IHyruleCompendiumFacade)
 class HyruleCompendiumFacade extends IHyruleCompendiumFacade {
@@ -18,23 +19,71 @@ class HyruleCompendiumFacade extends IHyruleCompendiumFacade {
           .toList();
 
       return monster;
-    } on DioError catch (e) {
+    } on DioError {
       return List.empty();
     }
   }
 
   @override
-  Future<List<Creature>> getCreature() async {
+  Future<List<Entity>> getCreatures() async {
     try {
       Response response = await Dio().get(
         "https://botw-compendium.herokuapp.com/api/v2/category/creatures",
       );
-      List<Creature> creatures = (response.data["data"]["food"] as List)
-          .map((element) => Creature.fromMap(element))
+      List<Entity> entities = (response.data["data"]["food"] as List)
+          .map((element) => Entity.fromMap(element))
           .toList();
 
-      return creatures;
-    } on DioError catch (e) {
+      return entities;
+    } on DioError {
+      return List.empty();
+    }
+  }
+
+  @override
+  Future<List<Entity>> getMaterials() async {
+    try {
+      Response response = await Dio().get(
+        "https://botw-compendium.herokuapp.com/api/v2/category/materials",
+      );
+      List<Entity> materials = (response.data["data"] as List)
+          .map((element) => Entity.fromMap(element))
+          .toList();
+
+      return materials;
+    } on DioError {
+      return List.empty();
+    }
+  }
+
+  @override
+  Future<List<Equipment>> getEquipments() async {
+    try {
+      Response response = await Dio().get(
+        "https://botw-compendium.herokuapp.com/api/v2/category/equipment",
+      );
+      List<Equipment> equipments =
+          (response.data["data"] as List).map((element) {
+        return Equipment.fromMap(element);
+      }).toList();
+
+      return equipments;
+    } on DioError {
+      return List.empty();
+    }
+  }
+
+  @override
+  Future<List<Treasure>> getTreasures() async {
+    try {
+      Response response = await Dio().get(
+        "https://botw-compendium.herokuapp.com/api/v2/category/treasure",
+      );
+      List<Treasure> treasures = (response.data["data"] as List).map((element) {
+        return Treasure.fromMap(element);
+      }).toList();
+      return treasures;
+    } on DioError {
       return List.empty();
     }
   }

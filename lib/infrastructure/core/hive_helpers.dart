@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:hive/hive.dart';
 import 'package:zelda_guide/constants.dart';
 import 'package:zelda_guide/domain/auth/auth_failure.dart';

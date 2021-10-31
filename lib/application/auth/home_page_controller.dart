@@ -1,12 +1,8 @@
-import 'dart:io';
-
 import 'package:camera/camera.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_map/plugin_api.dart';
 import 'package:get/get.dart';
 import 'package:injectable/injectable.dart';
-import 'package:latlong2/latlong.dart';
 import 'package:zelda_guide/application/auth/user_controller.dart';
 import 'package:zelda_guide/domain/auth/i_auth_facade.dart';
 import 'package:zelda_guide/domain/auth/models/user.dart';
@@ -89,7 +85,6 @@ class HomePageController extends GetxController {
     }
 
     _locationData = await location.getLocation();
-    print(_locationData);
     if (_locationData.latitude != null && _locationData.longitude != null) {
       latitude.value = _locationData.latitude!;
       longitude.value = _locationData.longitude!;
@@ -102,10 +97,6 @@ class HomePageController extends GetxController {
     });
 
     initListCoord();
-
-    print("NOUS ${latitude.value}");
-    print("NOUS ${longitude.value}");
-
     loading.toggle();
 
     super.onInit();

@@ -7,8 +7,8 @@ import 'package:zelda_guide/presentation/core/widgets/hyrule_item.dart';
 import 'package:zelda_guide/presentation/core/widgets/responsive_grid_view.dart';
 import 'package:zelda_guide/presentation/core/widgets/sheika_ui/sheika_tab_bar.dart';
 
-class MonstersView extends GetView<MonstersController> {
-  const MonstersView({Key? key}) : super(key: key);
+class CompendiumView extends GetView<MonstersController> {
+  const CompendiumView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class MonstersView extends GetView<MonstersController> {
                                   name: "Creatures",
                                   assetName: "assets/icons/horse.svg",
                                   width: 35,
-                                  semanticLabel: 'Creatures logo',
+                                  semanticLabel: 'Creature logo',
                                 ),
                                 SheikaTab(
                                   name: "Monsters",
@@ -94,6 +94,21 @@ class MonstersView extends GetView<MonstersController> {
                             children: [
                               Expanded(
                                 child: ResponsiveGridView(
+                                  children: controller.creatures
+                                      .map(
+                                        (creature) => HyruleItem(
+                                          imageUrl: creature.image,
+                                        ),
+                                      )
+                                      .toList(),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: ResponsiveGridView(
                                   children: controller.monsters
                                       .map(
                                         (monster) => HyruleItem(
@@ -109,10 +124,10 @@ class MonstersView extends GetView<MonstersController> {
                             children: [
                               Expanded(
                                 child: ResponsiveGridView(
-                                  children: controller.creatures
+                                  children: controller.materials
                                       .map(
-                                        (creature) => HyruleItem(
-                                          imageUrl: creature.image,
+                                        (material) => HyruleItem(
+                                          imageUrl: material.image,
                                         ),
                                       )
                                       .toList(),
@@ -120,14 +135,35 @@ class MonstersView extends GetView<MonstersController> {
                               ),
                             ],
                           ),
-                          const Center(
-                            child: Text("Hello"),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: ResponsiveGridView(
+                                  children: controller.equipments
+                                      .map(
+                                        (equipment) => HyruleItem(
+                                          imageUrl: equipment.image,
+                                        ),
+                                      )
+                                      .toList(),
+                                ),
+                              ),
+                            ],
                           ),
-                          const Center(
-                            child: Text("Hello"),
-                          ),
-                          const Center(
-                            child: Text("Hello"),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: ResponsiveGridView(
+                                  children: controller.treasures
+                                      .map(
+                                        (treasyre) => HyruleItem(
+                                          imageUrl: treasyre.image,
+                                        ),
+                                      )
+                                      .toList(),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
