@@ -1,16 +1,53 @@
-# Zelda Guide
+<h1 align="center"> Zelda Guide</h1>
 
-A new Flutter project.
+## Table of contents
 
-## Getting Started
+- [Quick start](#quick-start)
+- [What's included](#whats-included)
+- [Creators](#creators)
+## Quick start
 
-This project is a starting point for a Flutter application.
+This is a normal flutter app. You should follow the instructions in the [official documentation](https://flutter.io/docs/get-started/install).
 
-A few resources to get you started if this is your first Flutter project:
+<h3>Locally Installation</h3>
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+```
+git clone https://github.com/bdeguigne/Zelda-Guide.git
+cd ../path/to/the/file
+```
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+  ```
+  flutter pub get
+  ```
+  ```
+  flutter run
+  ```
+<h3>Builded version</h3>
+
+Follow this link : <https://codemagic.io/app/617ea685a05d5e6a24b6ff24/build/617eb25654ed647d40233697>
+
+And choose your prefered device in **Artifacts** sections
+
+## What's included
+
+App for the game Zelda breath of the wild. The interface will be inspired by the design of the "sheika" tablet of the game.
+ 
+Main screen : map + location with monsters around, when you are close to a monster you touch the icon of it and you kill it if all the monsters are dead others will reappear.
+
+The other screens will display information on the elements of the game Zelda Breath Of The Wild (monsters, animals ...).
+ 
+Profile page: recovery of the photo from the gallery and save the photo locally.
+ 
+We use this api to get the game info : https://gadhagod.github.io/Hyrule-Compendium-API/#/
+
+## Creators
+
+**Loubna EARALLY / Brice DEGUIGNE / Pierre NICOLAS**
+
+- <https://github.com/Pnic0las>
+- https://github.com/bdeguigne
+- https://github.com/LouErl
+
+
+Enjoy ⚔️ 🛡️
